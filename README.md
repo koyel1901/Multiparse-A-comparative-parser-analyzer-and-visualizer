@@ -1,84 +1,150 @@
-# 🚀 Multiparse – A Comparative Parser Analyzer and Visualizer
+# 🚀 Multiparse – Comparative Parser Analyzer and Visualizer
 
-Multiparse is an educational compiler design project that implements and compares multiple parsing techniques in a unified framework.
+Multiparse is a compiler design project that implements and compares multiple parsing techniques within a unified framework. It helps visualize how different parsers work internally through grammar analysis, parsing table generation, state construction, and parsing simulation.
 
-The goal of this project is to bridge the gap between theoretical parsing concepts and practical implementation by providing step-by-step simulation and comparative analysis of different parsing strategies.
+The project bridges theoretical compiler concepts with practical implementation, making parser design easier to understand for students and learners.
 
 ---
 
 ## 📌 Project Objective
 
-Parsing is a core component of compilers and interpreters. However, understanding the differences between top-down and bottom-up parsing strategies can be challenging when studied purely theoretically.
+Parsing is one of the most important phases of a compiler. However, understanding the differences between top-down and bottom-up parsing methods can be difficult when studied only through theory.
 
-Multiparse provides:
+Multiparse provides a hands-on environment to explore and compare different parser families through implementation and analysis.
 
-- Implementation of multiple parsing algorithms
-- Automatic FIRST and FOLLOW computation
-- Parsing table construction
-- Conflict detection
+---
+
+## ✨ Key Features
+
+- Multiple parser implementations in one project
+- FIRST and FOLLOW set computation
+- Parsing table generation
+- Grammar conflict detection
 - Stack-based parsing simulation
-- Comparative analysis between parsing techniques
+- Canonical state generation
+- Comparative analysis of parser techniques
+- Educational visualization of parsing workflow
 
 ---
 
-## 🧠 Parsing Techniques Covered
+## 🧠 Parsing Techniques Implemented
 
-### 🔹 LL(1) – Predictive Parsing (Top-Down)
-- FIRST & FOLLOW computation
+### 🔹 LL(1) Parser
+Top-down predictive parser using FIRST and FOLLOW sets.
+
+**Includes:**
 - Predictive parsing table
-- Stack-based simulation
+- Stack simulation
+- Grammar validation
 - Conflict detection
 
-### 🔹 LR(0) – Bottom-Up Parsing
-- Augmented grammar
-- Closure function
-- GOTO function
-- Canonical collection of LR(0) items
-- Shift-reduce parsing
+---
 
-### 🔹 SLR(1) – Simple LR Parsing
-- LR(0) item reuse
-- FOLLOW-based reduction filtering
-- Improved conflict resolution
+### 🔹 LR(0) Parser
+Basic bottom-up shift-reduce parser using LR(0) items.
+
+**Includes:**
+- Grammar augmentation
+- Closure and GOTO
+- Canonical LR(0) states
+- Parsing actions
 
 ---
 
-## ⚙️ Core Components
+### 🔹 SLR(1) Parser
+Improved LR(0) parser using FOLLOW sets for reductions.
+
+**Includes:**
+- LR(0) state reuse
+- FOLLOW-based reduce actions
+- Reduced conflicts compared to LR(0)
+
+---
+
+### 🔹 CLR(1) Parser (Canonical LR)
+
+More powerful parser using LR(1) items with lookahead symbols.
+
+**Includes:**
+- Canonical LR(1) states
+- Lookahead-based reductions
+- Handles larger class of grammars
+
+---
+
+### 🔹 LALR(1) Parser
+
+Optimized version of CLR(1) by merging similar LR(1) states.
+
+**Includes:**
+- Reduced number of states
+- Memory-efficient tables
+- Commonly used in parser generators
+
+---
+
+## ⚙️ Core Modules
 
 ### 1️⃣ Grammar Module
-- Stores productions
-- Identifies terminals & non-terminals
-- Manages start symbol
+- Stores grammar productions
+- Detects terminals and non-terminals
+- Handles start symbol
 
 ### 2️⃣ FIRST & FOLLOW Module
-- Uses fixed-point iterative algorithm
-- Handles epsilon propagation
-- Supports LL(1) and SLR(1)
+- Iterative fixed-point computation
+- Epsilon handling
+- Used in LL(1) and SLR(1)
 
 ### 3️⃣ LL(1) Engine
-- Predictive parsing table
-- Conflict detection
-- Stack simulation
-- Accept / Reject validation
+- Table construction
+- Predictive parsing
+- Input validation
 
-### 4️⃣ LR(0) Engine
-- Grammar augmentation
-- Closure computation
-- GOTO transitions
-- Canonical collection of items
+### 4️⃣ LR Family Engines
+- Closure / GOTO computation
+- Canonical state generation
 - Shift-reduce parsing
 
-### 5️⃣ SLR(1) Extension
-- Reuses LR(0) states
-- Applies FOLLOW-based reduction rules
-- Reduces conflicts compared to LR(0)
-
-### 6️⃣ Comparative Layer
+### 5️⃣ Comparative Analyzer
 - Number of states comparison
 - Table size comparison
-- Conflict count analysis
-- Parsing step comparison
+- Conflict analysis
+- Parser power comparison
 
 ---
 
+## 📊 Comparison Covered
 
+| Parser Type | Parsing Style | Power | States |
+|------------|--------------|-------|--------|
+| LL(1) | Top-Down | Basic | Low |
+| LR(0) | Bottom-Up | Moderate | Medium |
+| SLR(1) | Bottom-Up | Better | Medium |
+| CLR(1) | Bottom-Up | High | High |
+| LALR(1) | Bottom-Up | High | Medium |
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- Compiler Design Concepts
+- Data Structures & Algorithms
+- Git & GitHub
+
+---
+
+## 🎯 Use Cases
+
+- Compiler Design Mini Project
+- Educational Parser Visualizer
+- Grammar Analysis Tool
+- Learning Top-down vs Bottom-up Parsing
+- Academic Demonstration Project
+
+---
+
+## ▶️ How to Run
+
+```bash
+python main.py
